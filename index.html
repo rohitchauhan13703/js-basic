@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Basics to React Prep</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .example-box {
+            border-left: 4px solid #4F46E5;
+            background-color: #F9FAFB;
+            transition: all 0.3s ease;
+        }
+        .example-box:hover {
+            background-color: #EFF6FF;
+            transform: translateX(4px);
+        }
+        .btn-run {
+            background-color: #4F46E5;
+            color: white;
+            transition: all 0.2s;
+        }
+        .btn-run:hover {
+            background-color: #3730A3;
+            transform: translateY(-1px);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 p-8 max-w-4xl mx-auto">
+    <header class="mb-12 text-center">
+        <h1 class="text-4xl font-bold text-indigo-700 mb-2">JavaScript Basics</h1>
+        <p class="text-gray-600">Foundation for Learning React</p>
+    </header>
+
+    <div class="space-y-8">
+        <!-- Variables Section -->
+        <section class="example-box p-6 rounded-lg">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">1. Variables (let, const)</h2>
+            <pre class="bg-gray-800 text-gray-100 p-4 rounded mb-4 overflow-x-auto"><code>
+// Using let (mutable)
+let userName = "John";
+userName = "Jane"; // Can be changed
+
+// Using const (immutable)
+const birthYear = 1990;
+// birthYear = 2000; // Error: Can't reassign const
+            </code></pre>
+            <button onclick="runVariables()" class="btn-run px-4 py-2 rounded-md">Run Example</button>
+            <div id="variables-output" class="mt-4 p-3 bg-white rounded border"></div>
+        </section>
+
+        <!-- Data Types Section -->
+        <section class="example-box p-6 rounded-lg">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">2. Data Types</h2>
+            <pre class="bg-gray-800 text-gray-100 p-4 rounded mb-4 overflow-x-auto"><code>
+// String
+let greeting = "Hello World!";
+
+// Number
+let temperature = 23.5;
+
+// Boolean
+let isLoggedIn = true;
+
+// Object
+let user = { 
+    name: "Alice", 
+    age: 25 
+};
+
+// Array
+let colors = ["red", "green", "blue"];
+            </code></pre>
+            <button onclick="runDataTypes()" class="btn-run px-4 py-2 rounded-md">Run Example</button>
+            <div id="datatypes-output" class="mt-4 p-3 bg-white rounded border"></div>
+        </section>
+
+        <!-- Functions Section -->
+        <section class="example-box p-6 rounded-lg">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">3. Functions</h2>
+            <pre class="bg-gray-800 text-gray-100 p-4 rounded mb-4 overflow-x-auto"><code>
+// Regular Function
+function greet(name) {
+    return `Hello, ${name}!`;
+}
+
+// Arrow Function
+const addNumbers = (a, b) => a + b;
+
+// Immediately Invoked Function Expression (IIFE)
+(function() {
+    console.log("This runs immediately");
+})();
+            </code></pre>
+            <button onclick="runFunctions()" class="btn-run px-4 py-2 rounded-md">Run Example</button>
+            <div id="functions-output" class="mt-4 p-3 bg-white rounded border"></div>
+        </section>
+
+        <!-- Conditional Logic Section -->
+        <section class="example-box p-6 rounded-lg">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">4. Conditional Statements</h2>
+            <pre class="bg-gray-800 text-gray-100 p-4 rounded mb-4 overflow-x-auto"><code>
+let score = 85;
+let grade;
+
+if (score >= 90) {
+    grade = "A";
+} else if (score >= 80) {
+    grade = "B";
+} else if (score >= 70) {
+    grade = "C";
+} else {
+    grade = "D";
+}
+
+// Ternary operator
+let status = score >= 50 ? "Pass" : "Fail";
+            </code></pre>
+            <button onclick="runConditionals()" class="btn-run px-4 py-2 rounded-md">Run Example</button>
+            <div id="conditionals-output" class="mt-4 p-3 bg-white rounded border"></div>
+        </section>
+
+        <!-- Loops Section -->
+        <section class="example-box p-6 rounded-lg">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">5. Loops</h2>
+            <pre class="bg-gray-800 text-gray-100 p-4 rounded mb-4 overflow-x-auto"><code>
+// For loop
+for (let i = 1; i <= 5; i++) {
+    console.log(`Count: ${i}`);
+}
+
+// While loop
+let x = 0;
+while (x < 3) {
+    console.log(`While: ${x}`);
+    x++;
+}
+
+// Array iteration
+const fruits = ["apple", "banana", "orange"];
+fruits.forEach(fruit => console.log(fruit));
+            </code></pre>
+            <button onclick="runLoops()" class="btn-run px-4 py-2 rounded-md">Run Example</button>
+            <div id="loops-output" class="mt-4 p-3 bg-white rounded border"></div>
+        </section>
+
+        <!-- Arrays Section -->
+        <section class="example-box p-6 rounded-lg">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">6. Arrays</h2>
+            <pre class="bg-gray-800 text-gray-100 p-4 rounded mb-4 overflow-x-auto"><code>
+const numbers = [1, 2, 3, 4, 5];
+
+// Adding/removing elements
+numbers.push(6); // end
+numbers.pop(); // remove end
+numbers.unshift(0); // beginning
+numbers.shift(); // remove beginning
+
+// Common array methods
+const doubled = numbers.map(num => num * 2);
+const evens = numbers.filter(num => num % 2 === 0);
+const sum = numbers.reduce((total, num) => total + num, 0);
+            </code></pre>
+            <button onclick="runArrays()" class="btn-run px-4 py-2 rounded-md">Run Example</button>
+            <div id="arrays-output" class="mt-4 p-3 bg-white rounded border"></div>
+        </section>
+
+        <!-- Objects Section -->
+        <section class="example-box p-6 rounded-lg">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">7. Objects</h2>
+            <pre class="bg-gray-800 text-gray-100 p-4 rounded mb-4 overflow-x-auto"><code>
+const person = {
+    name: "John",
+    age: 30,
+    hobbies: ["sports", "music"],
+    address: {
+        street: "123 Main St",
+        city: "Boston"
+    },
+    greet: function() {
+        return `Hello, my name is ${this.name}`;
+    }
+};
+
+// Accessing properties
+console.log(person.name); // dot notation
+console.log(person["age"]); // bracket notation
+console.log(person.greet());
+
+// Object destructuring
+const { name, age } = person;
+            </code></pre>
+            <button onclick="runObjects()" class="btn-run px-4 py-2 rounded-md">Run Example</button>
+            <div id="objects-output" class="mt-4 p-3 bg-white rounded border"></div>
+        </section>
+
+        <!-- ES6 Features Section -->
+        <section class="example-box p-6 rounded-lg">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">8. ES6 Features</h2>
+            <pre class="bg-gray-800 text-gray-100 p-4 rounded mb-4 overflow-x-auto"><code>
+// Template literals
+const username = "Sarah";
+console.log(`Hello, ${username}!`);
+
+// Spread operator
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1, 4, 5];
+
+// Rest parameters
+function sum(...numbers) {
+    return numbers.reduce((total, num) => total + num, 0);
+}
+
+// Classes
+class Person {
+    constructor(name) {
+        this.name = name;
+    }
+    greet() {
+        return `Hello, I'm ${this.name}`;
+    }
+}
+            </code></pre>
+            <button onclick="runES6()" class="btn-run px-4 py-2 rounded-md">Run Example</button>
+            <div id="es6-output" class="mt-4 p-3 bg-white rounded border"></div>
+        </section>
+
+        <!-- Asynchronous JS Section -->
+        <section class="example-box p-6 rounded-lg">
+            <h2 class="text-2xl font-semibold text-gray-800 mb-4">9. Asynchronous JavaScript</h2>
+            <pre class="bg-gray-800 text-gray-100 p-4 rounded mb-4 overflow-x-auto"><code>
+// Callback
+function fetchData(callback) {
+    setTimeout(() => {
+        callback("Data received");
+    }, 1000);
+}
+
+// Promise
+function getUser() {
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            resolve({ name: "John", id: 1 });
+        }, 1500);
+    });
+}
+
+// Async/Await
+async function displayUser() {
+    try {
+        const user = await getUser();
+        console.log(user);
+    } catch (error) {
+        console.log("Error:", error);
+    }
+}
+            </code></pre>
+            <button onclick="runAsync()" class="btn-run px-4 py-2 rounded-md">Run Example</button>
+            <div id="async-output" class="mt-4 p-3 bg-white rounded border"></div>
+        </section>
+    </div>
+
+    <footer class="mt-12 text-center text-gray-600">
+        <p>Start learning React after mastering these JavaScript fundamentals!</p>
+    </footer>
+
+    <script>
+        // Utility function to display output
+        function displayOutput(id, content) {
+            const outputDiv = document.getElementById(id);
+            if (typeof content === 'object') {
+                outputDiv.innerHTML = `<pre>${JSON.stringify(content, null, 2)}</pre>`;
+            } else {
+                outputDiv.textContent = content;
+            }
+        }
+
+        // Example functions
+        function runVariables() {
+            let userName = "John";
+            userName = "Jane";
+            
+            const birthYear = 1990;
+            // birthYear = 2000; // Uncomment to see error
+            
+            displayOutput('variables-output', 
+                `userName changed to: ${userName}\nbirthYear is: ${birthYear} (constant)`
+            );
+        }
+
+        function runDataTypes() {
+            const user = { name: "Alice", age: 25 };
+            const colors = ["red", "green", "blue"];
+            
+            displayOutput('datatypes-output', {
+                string: "Hello World!",
+                number: 23.5,
+                boolean: true,
+                object: user,
+                array: colors
+            });
+        }
+
+        function runFunctions() {
+            function greet(name) {
+                return `Hello, ${name}!`;
+            }
+            
+            const addNumbers = (a, b) => a + b;
+            
+            displayOutput('functions-output', [
+                greet("Sarah"),
+                `5 + 3 = ${addNumbers(5, 3)}`
+            ].join("\n"));
+        }
+
+        function runConditionals() {
+            let score = 85;
+            let grade;
+            
+            if (score >= 90) {
+                grade = "A";
+            } else if (score >= 80) {
+                grade = "B";
+            } else if (score >= 70) {
+                grade = "C";
+            } else {
+                grade = "D";
+            }
+            
+            let status = score >= 50 ? "Pass" : "Fail";
+            
+            displayOutput('conditionals-output', 
+                `Score ${score}: Grade ${grade} (${status})`
+            );
+        }
+
+        function runLoops() {
+            let output = [];
+            
+            // For loop
+            for (let i = 1; i <= 3; i++) {
+                output.push(`For count: ${i}`);
+            }
+            
+            // While loop
+            let x = 0;
+            while (x < 2) {
+                output.push(`While count: ${x}`);
+                x++;
+            }
+            
+            // Array iteration
+            const fruits = ["apple", "banana", "orange"];
+            fruits.forEach(fruit => output.push(`Fruit: ${fruit}`));
+            
+            displayOutput('loops-output', output.join("\n"));
+        }
+
+        function runArrays() {
+            const numbers = [1, 2, 3, 4, 5];
+            
+            // Array methods
+            const doubled = numbers.map(num => num * 2);
+            const evens = numbers.filter(num => num % 2 === 0);
+            const sum = numbers.reduce((total, num) => total + num, 0);
+            
+            displayOutput('arrays-output', {
+                original: numbers,
+                doubled: doubled,
+                evenNumbers: evens,
+                sumOfAll: sum
+            });
+        }
+
+        function runObjects() {
+            const person = {
+                name: "John",
+                age: 30,
+                hobbies: ["sports", "music"],
+                address: {
+                    street: "123 Main St",
+                    city: "Boston"
+                },
+                greet: function() {
+                    return `Hello, my name is ${this.name}`;
+                }
+            };
+            
+            // Object destructuring
+            const { name, age } = person;
+            
+            displayOutput('objects-output', {
+                fullObject: person,
+                destructured: { name, age },
+                greeting: person.greet()
+            });
+        }
+
+        function runES6() {
+            // Template literals
+            const username = "Sarah";
+            
+            // Spread operator
+            const arr1 = [1, 2, 3];
+            const arr2 = [...arr1, 4, 5];
+            
+            // Rest parameters
+            function sum(...numbers) {
+                return numbers.reduce((total, num) => total + num, 0);
+            }
+            
+            displayOutput('es6-output', [
+                `Greeting: Hello, ${username}!`,
+                `Spread array: ${JSON.stringify(arr2)}`,
+                `Sum of 1-5: ${sum(1, 2, 3, 4, 5)}`
+            ].join("\n"));
+        }
+
+        function runAsync() {
+            // Using Promise
+            function getUser() {
+                return new Promise((resolve) => {
+                    setTimeout(() => {
+                        resolve({ name: "John", id: 1 });
+                    }, 1000);
+                });
+            }
+            
+            displayOutput('async-output', "Fetching user data...");
+            
+            getUser()
+                .then(user => {
+                    displayOutput('async-output', `User received: ${JSON.stringify(user)}`);
+                })
+                .catch(error => {
+                    displayOutput('async-output', `Error: ${error}`);
+                });
+        }
+    </script>
+</body>
+</html>
